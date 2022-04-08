@@ -1,21 +1,22 @@
 import * as React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
-// import Home from '../components/Home';
-// import Home from '../components/Home';
 import LandingPage from '../components/LandingPage';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
+import CreateEventPage from '../components/CreateEventPage';
 
 const Stack = createNativeStackNavigator();
 
 export default function Main() {
   return (
-    <SafeAreaProvider>
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Landing" component={LandingPage} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </SafeAreaProvider>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={
+        {
+          headerShown:false
+        }
+      }>
+        <Stack.Screen name="Landing" component={LandingPage} />
+        <Stack.Screen name="CreateEvent" component={CreateEventPage}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
